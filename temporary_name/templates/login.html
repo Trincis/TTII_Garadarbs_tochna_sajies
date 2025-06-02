@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>title</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div>
+        <h1 >TemporaryName</h1>
+        <form method="POST"> <!--jāpieliek action uz url, kur nosūta info (servera puses skripts)-->
+            <label for="first">email:</label>
+            <input type="text" id="first" name="first" placeholder="Enter your email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter your Password" required>
+
+            <button type="submit"> Submit </button>
+
+            <a href="#">
+                    forgot password UwU
+                </a>
+        </form> 
+    </div>
+</body>
+</html>
