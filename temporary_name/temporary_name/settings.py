@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+AUTH_USER_MODEL = 'users.CustomUser'
 
 # Application definition
 
@@ -37,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -103,6 +105,13 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
+#Switchin languages
+LANGUAGES = [
+    ('en', 'English'),
+    ('lv', 'Latviešu'),
+]
+USE_I18N = True
+LOCALE_PATHS = [BASE_DIR / 'locale']
 
 TIME_ZONE = 'UTC'
 
