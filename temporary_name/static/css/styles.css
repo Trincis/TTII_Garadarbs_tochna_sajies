@@ -21,6 +21,6 @@ a{
     font-family: 'Courier New', Courier, monospace;
 }
 
-.topnav div firstchild h1:last-child{
+.topnav div:last-child{
     color:magenta;
 }
