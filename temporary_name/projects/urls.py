@@ -1,6 +1,6 @@
 from django.urls import path
-from . import views
+from .views import project_view
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', project_view, name='project'),
 ]

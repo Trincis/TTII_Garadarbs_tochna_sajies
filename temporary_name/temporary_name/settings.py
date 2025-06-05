@@ -60,7 +60,7 @@ ROOT_URLCONF = 'temporary_name.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': ['templates'],  # This means the folder named 'templates' in your BASE_DIR
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
