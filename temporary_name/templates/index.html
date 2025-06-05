@@ -58,6 +58,7 @@
 
   <div>
      <nav>
+        <a href="{% url 'dashboard' %}"><button>Dashboard</button></a>
         <a href="{% url 'projects' %}"><button>Projects</button></a>
         <a href="{% url 'tasks' %}"><button>Tasks</button></a>
     </nav>
@@ -67,38 +68,5 @@
     <p>Select a section to see its content.</p>
   </div>
 
-  <script>
-    function showContent(section) {
-      const contentDiv = document.getElementById('content');
-      let html = '';
-
-      switch(section) {
-        case 'projects':
-          html = `<h2>Projects</h2>
-                  <ul>
-                    <li>Project A</li>
-                    <li>Project B</li>
-                    <li>Project C</li>
-                  </ul>`;
-          break;
-        case 'comments':
-          html = `<h2>Comments</h2>
-                  <p>You have 3 new comments.</p>`;
-          break;
-        case 'timelogs':
-          html = `<h2>Time Logs</h2>
-                  <p>Track your work hours here.</p>`;
-          break;
-        case 'files':
-          html = `<h2>Files</h2>
-                  <p>Manage your uploaded files.</p>`;
-          break;
-        default:
-          html = '<p>Select a section to see its content.</p>';
-      }
-
-      contentDiv.innerHTML = html;
-    }
-  </script>
 </body>
 </html>

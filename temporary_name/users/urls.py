@@ -5,6 +5,6 @@ from projects import views as project_views
 urlpatterns = [
     path('', project_views.index, name='home'),
     path('projects/', project_views.projects, name='projects'),
-    path('tasks/', project_views.tasks, name='tasks'),
+    path('tasks/', user_views.tasks_view, name='tasks'),
     path('login/', user_views.login_view, name='login'),
 ]
