@@ -2,10 +2,25 @@ from django.db import models
 from django.conf import settings  # use this for custom or default User model
 
 class Project(models.Model):
+    created_by = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name='projects_created'
+    )
+
+class Project(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField()
     deadline = models.DateField()
     created_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+
+class Task(models.Model):
+    assigned_to = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.SET_NULL,
+        null=True,
+        related_name='tasks_assigned'
+    )
 
 class Task(models.Model):
     STATUS_CHOICES = [
