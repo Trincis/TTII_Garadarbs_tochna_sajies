@@ -1,37 +1,28 @@
 from django.db import models
-from django.conf import settings  # use this for custom or default User model
+from users.models import User
 
 class Project(models.Model):
-    created_by = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
-        on_delete=models.CASCADE,
-        related_name='projects_created'
-    )
-
-class Project(models.Model):
-    name = models.CharField(max_length=200)
+    name = models.CharField(max_length=100)
     description = models.TextField()
     deadline = models.DateField()
-    created_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name='created_projects')
 
-class Task(models.Model):
-    assigned_to = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
-        on_delete=models.SET_NULL,
-        null=True,
-        related_name='tasks_assigned'
-    )
+    def __str__(self):
+        return self.name
 
 class Task(models.Model):
     STATUS_CHOICES = [
         ('pending', 'Pending'),
         ('in_progress', 'In Progress'),
-        ('complete', 'Complete'),
+        ('completed', 'Completed'),
     ]
 
-    title = models.CharField(max_length=200)
+    title = models.CharField(max_length=100)
     description = models.TextField()
-    project = models.ForeignKey(Project, on_delete=models.CASCADE)
-    assigned_to = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True)
-    status = models.CharField(max_length=20, choices=STATUS_CHOICES)
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='pending')
+    assigned_to = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name='tasks')
+    project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='tasks')
     deadline = models.DateField()
+
+    def __str__(self):
+        return self.title

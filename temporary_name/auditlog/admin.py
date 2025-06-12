@@ -1,9 +1,6 @@
+# auditlog/admin.py
 from django.contrib import admin
-from django.contrib.auth.admin import UserAdmin
-from .models import User
-from auditlog.models import AuditLog
-
-admin.site.register(User, UserAdmin)
+from .models import AuditLog
 
 @admin.register(AuditLog)
 class AuditLogAdmin(admin.ModelAdmin):
