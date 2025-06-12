@@ -35,7 +35,7 @@ a{
     justify-content: space-between;
     position:sticky;
     top:0;
-    gap:75%;
+    gap:67%;
 }
 
 .topnav div {
@@ -76,7 +76,7 @@ a{
     justify-content: space-between;
     position:sticky;
     top:0;
-    gap:83%;
+    gap:70%;
 }
 
 .topnav-tasks div {
@@ -106,4 +106,36 @@ a{
 
 .login {
     width:50%;
+    margin:auto;
+    position: absolute;
+    display:flex;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    justify-content: center;
+    align-content: center;
+}
+
+.login h1 {
+    padding:10px;
+}
+
+input {
+    width:75%;
+    align-self:center;
+}
+
+.forma {
+    padding: 5px;
+    align-self: center;
+}
+
+.submit {
+    width: 20%;
+    padding-top: 5px;
+}
+
+.forgot a {
+    font-size: small;
 }

@@ -12,15 +12,20 @@
         <h1>TemporaryName</h1>
         <form method="POST" action="">
             {% csrf_token %}
-            <label for="first">Email:</label>
-            <input type="text" id="first" name="first" placeholder="Enter your email" required>
-
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" placeholder="Enter your Password" required>
-
+            <div class="forma">
+                <label for="first">Email:</label>
+                <input type="text" id="first" name="first" placeholder="Enter your email" required>
+            </div>
+            <div class="forma">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Enter your Password" required>
+            </div>
+            <div class="submit">
             <button type="submit">Submit</button>
-
+            </div>
+            <div class="forgot">
             <a href="#">forgot password UwU</a>
+            </div>
         </form> 
     </div>
 </body>
