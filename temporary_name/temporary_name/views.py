@@ -13,7 +13,7 @@ def tasks(request):
     return render(request, 'tasks.html')
 
 def dashboard(request):
-    return HttpResponse("Dashboard page")
+    return render(request, "Dashboard.html")
 
 def update_task(request, task_id):
     task = get_object_or_404(Task, id=task_id)
