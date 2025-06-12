@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from auditlog.models import AuditLog
+from customlog.models import AuditLog
 
 def index(request):
     return render(request, 'index.html')

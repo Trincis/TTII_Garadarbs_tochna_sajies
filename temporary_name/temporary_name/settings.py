@@ -43,7 +43,9 @@ INSTALLED_APPS = [
     'comments',
     'timelogs',
     'files',
+    'tasks',
     'customlog',
+    'auditlog',
 ]
 
 MIDDLEWARE = [

@@ -1,8 +1,9 @@
 from django.db import models
+from users.models import User
 
 class AuditLog(models.Model):
-    user = models.ForeignKey('users.User', on_delete=models.SET_NULL, null=True)  # string reference here
-    action = models.CharField(max_length=255)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    action = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
