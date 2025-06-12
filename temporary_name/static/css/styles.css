@@ -24,3 +24,35 @@ a{
 .topnav div:last-child{
     color:magenta;
 }
+
+/*navbars*/
+.topnav {
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    width: 100%;
+    display:flex;
+    justify-content: space-around;
+    position:sticky;
+    top:0;
+    
+}
+
+.topnav a {
+    text-align: center;
+    padding: 7px 16px;
+    text-decoration: none;
+    font-size: 17px;    
+    color:blue;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.topnav a:hover {
+    background-color: blue;
+    color:white;
+}
+
+.topnav a:active {
+    background-color:deeppink;
+    color:black;
+}
