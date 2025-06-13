@@ -6,15 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <script src="{% static 'js/script.js' %}"></script>
 </head>
 <body>
     <div class="login">
         <h1>TemporaryName</h1>
-        <form method="POST" action="">
+        <form id="login" method="POST" action="">
             {% csrf_token %}
             <div class="forma">
-                <label for="first">Email:</label>
-                <input type="text" id="first" name="first" placeholder="Enter your email" required>
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" placeholder="Enter your email" required>
             </div>
             <div class="forma">
                 <label for="password">Password:</label>
