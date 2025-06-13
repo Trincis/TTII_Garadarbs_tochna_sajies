@@ -2,6 +2,11 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required, user_passes_test
 from .models import Project, Task
 
+def project_detail(request, pk):
+    project = get_object_or_404(Project, pk=pk)
+    tasks = Task.objects.filter(project=project)
+    return render(request, 'projects/project_detail.html', {'project': project, 'tasks': tasks})
+
 def project_list(request):
     projects = Project.objects.all()
     return render(request, 'projects/project_list.html', {'projects': projects})

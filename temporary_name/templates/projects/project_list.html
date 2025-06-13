@@ -7,13 +7,12 @@
     <h1>Projects</h1>
     <ul>
         {% for project in projects %}
-            <li>{{ project.name }} - {{ project.description }}</li>
+            <li>
+                <a href="{% url 'project_detail' project.pk %}">{{ project.name }}</a> - {{ project.description }}
+            </li>
         {% empty %}
             <li>No projects found.</li>
         {% endfor %}
     </ul>
-    {% if user.is_staff or user.is_superuser %}
-    <a href="{% url 'new_project' %}">Create New Project</a>
-{% endif %}
 </body>
 </html>
