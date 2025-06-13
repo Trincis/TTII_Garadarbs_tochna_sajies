@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Project List</title>
+</head>
+<body>
+    <h1>Projects</h1>
+    <ul>
+        {% for project in projects %}
+            <li>{{ project.name }} - {{ project.description }}</li>
+        {% empty %}
+            <li>No projects found.</li>
+        {% endfor %}
+    </ul>
+    {% if user.is_staff or user.is_superuser %}
+    <a href="{% url 'new_project' %}">Create New Project</a>
+{% endif %}
+</body>
+</html>

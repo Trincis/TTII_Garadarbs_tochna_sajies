@@ -2,9 +2,12 @@ from django.db import models
 from users.models import User
 
 class Project(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100)  # Use 'name' instead of 'title' to avoid confusion
     description = models.TextField()
-    deadline = models.DateField()
+    image = models.ImageField(upload_to='projects/', null=True, blank=True)
+    start_date = models.DateField(null=True, blank=True)
+    end_date = models.DateField(null=True, blank=True)
+    deadline = models.DateField(null=True, blank=True)
     created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name='created_projects')
 
     def __str__(self):
