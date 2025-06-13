@@ -14,5 +14,8 @@
             <li>No projects found.</li>
         {% endfor %}
     </ul>
+    {% if user.is_staff or user.is_superuser %}
+    <a href="{% url 'new_project' %}">Create New Project</a>
+{% endif %}
 </body>
 </html>
