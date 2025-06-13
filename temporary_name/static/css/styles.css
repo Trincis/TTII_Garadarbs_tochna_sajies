@@ -5,10 +5,7 @@
     width:100%;
 }
 
-body{
-    background-color: #f5f5f5;
-    color: black;
-}
+body{ background-color: #f5f5f5; color: black;}
 
 h1{
     color:aqua;
@@ -23,9 +20,7 @@ a{
 }
 
 /*navbars*/
-.topnav div h1:last-child{
-    color:magenta;
-}
+.topnav div h1:last-child{ color:magenta;}
 
 .topnav {
     font-family: 'Courier New', Courier, monospace;
@@ -38,10 +33,7 @@ a{
     gap:67%;
 }
 
-.topnav div {
-    display:flex;
-    justify-content: initial;
-}
+.topnav div { display:flex; justify-content: initial;}
 
 .topnav a {
     text-align: center;
@@ -53,20 +45,12 @@ a{
     display: inline-block;
 }
 
-.topnav a:hover {
-    background-color: blue;
-    color:white;
-}
+.topnav a:hover { background-color: blue; color:white;}
 
-.topnav a:active {
-    background-color:deeppink;
-    color:black;
-}
+.topnav a:active { background-color:deeppink; color:black;}
 
 /**/
-.topnav-tasks div h1:last-child{
-    color:magenta;
-}
+.topnav-tasks div h1:last-child{ color:magenta;}
 
 .topnav-tasks {
     font-family: 'Courier New', Courier, monospace;
@@ -79,10 +63,7 @@ a{
     gap:70%;
 }
 
-.topnav-tasks div {
-    display:flex;
-    justify-content: initial;
-}
+.topnav-tasks div { display:flex; justify-content: initial;}
 
 .topnav-tasks a {
     text-align: center;
@@ -94,16 +75,11 @@ a{
     display: inline-block;
 }
 
-.topnav-tasks a:hover {
-    background-color: blue;
-    color:white;
-}
+.topnav-tasks a:hover { background-color: blue; color:white;}
 
-.topnav-tasks a:active {
-    background-color:deeppink;
-    color:black;
-}
+.topnav-tasks a:active { background-color:deeppink; color:black;}
 
+/*login*/
 .login {
     width:50%;
     margin:auto;
@@ -117,25 +93,25 @@ a{
     align-content: center;
 }
 
-.login h1 {
-    padding:10px;
+.login h1 { padding:10px;}
+
+input { width:75%; align-self:center;}
+
+.forma { padding: 5px; align-self: center;}
+
+.submit { width: 20%; padding-top: 5px;}
+
+.forgot a { font-size: small;}
+
+/*projektu lapa*/
+.projects {
+    width: 80%;
+    margin: 40px auto;
+    padding: 20px;
+    display: block;
+    min-height: 200px;
 }
 
-input {
-    width:75%;
-    align-self:center;
-}
-
-.forma {
-    padding: 5px;
-    align-self: center;
-}
-
-.submit {
-    width: 20%;
-    padding-top: 5px;
-}
-
-.forgot a {
-    font-size: small;
+.projects a {
+    color:blueviolet;
 }

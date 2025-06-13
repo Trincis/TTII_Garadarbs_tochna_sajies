@@ -15,5 +15,21 @@
         <a href="#about">Tasks</a>
         <a href="#about">logout</a></div> <!--kkā jāpieliek izlogošanās-->
 </div> 
+
+<div class="projects">
+    <ul>
+        {% for project in projects %}
+            <li>
+                <a href="{% url 'project_detail' project.pk %}">{{ project.name }}</a> - {{ project.description }}
+            </li>
+        {% empty %}
+            <li>No projects found.</li>
+        {% endfor %}
+    </ul>
+
+    {% if user.is_staff or user.is_superuser %} 
+        <a href="{% url 'new_project' %}">Create New Project</a>
+    {% endif %}
+</div>
 </body>
 </html>

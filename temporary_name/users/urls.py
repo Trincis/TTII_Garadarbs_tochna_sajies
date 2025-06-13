@@ -4,7 +4,7 @@ from projects import views as project_views
 
 urlpatterns = [
     path('', user_views.index, name='home'),
-    path('projects/', project_views.project_list, name='projects'),
+    path('projects/', project_views.projects, name='projects'),
     path('tasks/', user_views.tasks_view, name='tasks'),
     path('login/', user_views.login_view, name='login'),
     path('tasks/', include('tasks.urls')),

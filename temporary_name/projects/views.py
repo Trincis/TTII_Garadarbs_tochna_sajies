@@ -11,6 +11,10 @@ def project_list(request):
     projects = Project.objects.all()
     return render(request, 'projects/project_list.html', {'projects': projects})
 
+def projects(request):
+    projects = Project.objects.all()
+    return render(request, 'projects/projects.html', {'projects': projects})
+
 def is_admin(user):
     return user.is_authenticated and user.is_staff
 
