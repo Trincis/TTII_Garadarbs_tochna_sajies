@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Create New Project</h1>
-    <form method="post" id="projectForm">
+    <form method="post" id="projectForm" class="pievForm">
         {% csrf_token %}
         <label for="project_name">Project Name:</label>
         <input type="text" name="project_name" id="projectName" required><br><br>
