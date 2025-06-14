@@ -8,21 +8,21 @@
 </head>
 <body>
     <h1>Create New Project</h1>
-    <form method="post">
+    <form method="post" id="projectForm">
         {% csrf_token %}
         <label for="project_name">Project Name:</label>
-        <input type="text" name="project_name" id="project_name" required><br><br>
+        <input type="text" name="project_name" id="projectName" required><br><br>
 
         <label for="project_description">Description:</label><br>
-        <textarea name="project_description" id="project_description" rows="4" cols="50"></textarea><br><br>
+        <textarea name="project_description" id="projectDescription" rows="4" cols="50"></textarea><br><br>
 
         <label>Tasks (enter multiple tasks):</label><br>
-        <input type="text" name="tasks" placeholder="Task 1"><br>
-        <input type="text" name="tasks" placeholder="Task 2"><br>
-        <input type="text" name="tasks" placeholder="Task 3"><br>
+        <div id="task-list"></div><br>
+        <button type="button" onclick="addTask()">Add Task</button>
 
         <button type="submit">Create Project</button>
+        
     </form>
-    <a href="{% url 'project_list' %}">Back to Projects</a>
+    <a href="{% url 'projects' %}">Back to Projects</a>
 </body>
 </html>

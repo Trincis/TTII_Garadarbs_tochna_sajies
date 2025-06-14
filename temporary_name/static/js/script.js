@@ -1,5 +1,6 @@
+document.addEventListener('DOMContentLoaded', function () {
 const form = document.getElementById('projectForm');
-const taskList = document.getElementById('taskList');
+const taskList = document.getElementById('task-list');
 
 function addTask() {
   const taskItem = document.createElement('div');
@@ -10,11 +11,13 @@ function addTask() {
   `;
   taskList.appendChild(taskItem);
 }
+window.addTask = addTask;
 
 function removeTask(button) {
   const taskItem = button.parentElement;
   taskList.removeChild(taskItem);
 }
+window.removeTask = removeTask;
 
 form.addEventListener('submit', function (e) {
   const name = document.getElementById('projectName').value.trim();
@@ -31,3 +34,5 @@ form.addEventListener('submit', function (e) {
 
 // Add one initial task input on page load
 addTask();
+
+});
