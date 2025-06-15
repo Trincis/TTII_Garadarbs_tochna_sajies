@@ -16,9 +16,18 @@
         <label for="project_description">Description:</label><br>
         <textarea name="project_description" id="projectDescription" rows="4" cols="50"></textarea><br><br>
 
+        <label for="workers">Assign to:</label><br>
+        <select name="workers" id="workers" multiple>
+        {% for user in users %}
+            <option value="{{ user.id }}">{{ user.username }}</option>
+        {% endfor %}
+        </select>
+        <br><br>
+
         <label>Tasks (enter multiple tasks):</label><br>
         <div id="task-list"></div><br>
         <button type="button" onclick="addTask()">Add Task</button>
+        
 
         <button type="submit">Create Project</button>
         
