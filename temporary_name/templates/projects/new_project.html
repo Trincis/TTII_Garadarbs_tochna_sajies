@@ -1,22 +1,44 @@
 <!DOCTYPE html>
 {% load static %}
-<html>
+{% load static i18n %}
+<html lang="{{ LANGUAGE_CODE }}">
 <head>
-    <title>New Project</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% trans "New Project" %}</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <script src="{% static 'js/script.js' %}"></script>
+    <script type="text/javascript">
+    const translations = {
+        taskPlaceholder: "{% blocktrans %}Task description{% endblocktrans %}"
+    };
+</script>
 </head>
 <body>
-    <h1>Create New Project</h1>
+        <!-- Language Switcher -->
+    <div class="language-switcher" style="margin-bottom: 20px;">
+        <form action="{% url 'set_language' %}" method="post" style="display: inline;">
+            {% csrf_token %}
+            <input name="next" type="hidden" value="{{ request.path }}" />
+            <button type="submit" name="language" value="lv" style="background-color: #ff69b4; color: white; border: none; padding: 8px 15px; margin-right: 10px; border-radius: 5px; cursor: pointer; font-weight: bold;">LV</button>
+        </form>
+        <form action="{% url 'set_language' %}" method="post" style="display: inline;">
+            {% csrf_token %}
+            <input name="next" type="hidden" value="{{ request.path }}" />
+            <button type="submit" name="language" value="en" style="background-color: #ff69b4; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; font-weight: bold;">EN</button>
+        </form>
+    </div>
+
+    <h1>{% trans "Create new project" %}</h1>
     <form method="post" id="projectForm" class="pievForm">
         {% csrf_token %}
-        <label for="project_name">Project Name:</label>
+        <label for="project_name">{% trans "Project name" %}:</label>
         <input type="text" name="project_name" id="projectName" required><br><br>
 
-        <label for="project_description">Description:</label><br>
+        <label for="project_description">{% trans "Description" %}:</label><br>
         <textarea name="project_description" id="projectDescription" rows="4" cols="50"></textarea><br><br>
 
-        <label for="workers">Assign to:</label><br>
+        <label for="workers">{% trans "Assign to" %}:</label><br>
         <select name="workers" id="workers" multiple>
         {% for user in users %}
             <option value="{{ user.id }}">{{ user.username }}</option>
@@ -24,14 +46,14 @@
         </select>
         <br><br>
 
-        <label>Tasks (enter multiple tasks):</label><br>
+        <label>{% trans "Tasks (enter multiple tasks)" %}:</label><br>
         <div id="task-list"></div><br>
-        <button type="button" onclick="addTask()">Add Task</button>
+        <button type="button" onclick="addTask()">{% trans "Add task" %}</button>
         
 
-        <button type="submit">Create Project</button>
+        <button type="submit">{% trans "Create project" %}</button>
         
     </form>
-    <a href="{% url 'projects' %}">Back to Projects</a>
+    <a href="{% url 'projects' %}">{% trans "Back to Projects" %}</a>
 </body>
 </html>

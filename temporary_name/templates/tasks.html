@@ -1,18 +1,34 @@
 <!DOCTYPE html>
 {% load static %}
-<html>
+{% load static i18n %}
+<html lang="{{ LANGUAGE_CODE }}">
 <head>
     <meta charset="UTF-8" />
-    <title>Tasks</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% trans "Tasks" %}</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
+        <!-- Language Switcher -->
+    <div class="language-switcher" style="margin-bottom: 20px;">
+        <form action="{% url 'set_language' %}" method="post" style="display: inline;">
+            {% csrf_token %}
+            <input name="next" type="hidden" value="{{ request.path }}" />
+            <button type="submit" name="language" value="lv" style="background-color: #ff69b4; color: white; border: none; padding: 8px 15px; margin-right: 10px; border-radius: 5px; cursor: pointer; font-weight: bold;">LV</button>
+        </form>
+        <form action="{% url 'set_language' %}" method="post" style="display: inline;">
+            {% csrf_token %}
+            <input name="next" type="hidden" value="{{ request.path }}" />
+            <button type="submit" name="language" value="en" style="background-color: #ff69b4; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; font-weight: bold;">EN</button>
+        </form>
+    </div>
+
 <div class="topnav-tasks">
-    <div><h1>TN</h1><h1>Tasks</h1></div>
+    <div><h1>TN</h1><h1>{% trans "Tasks" %}</h1></div>
     <div>
-        <a href="{% url 'projects' %}">Projects</a>
-        <a href="{% url 'dashboard' %}">Dashboard</a>
-        <a href="#about">logout</a></div> <!--kkā jāpieliek izlogošanās-->
+        <a href="{% url 'projects' %}">{% trans "Projects" %}</a>
+        <a href="{% url 'dashboard' %}">{% trans "Dashboard" %}</a>
+        <a href="{% url 'login' %}">{% trans "logout" %}</a>
 </div> 
 </body>
 </html>

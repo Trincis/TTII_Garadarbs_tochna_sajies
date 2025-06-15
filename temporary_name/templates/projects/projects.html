@@ -1,20 +1,37 @@
 <!DOCTYPE html>
 {% load static %}
-<html>
+{% load static i18n %}
+<html lang="{{ LANGUAGE_CODE }}">
 <head>
     <meta charset="UTF-8" />
-    <title>Projects</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% trans "Projects" %}</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <script src="{% static 'js/script.js' %}"></script>
 </head>
 <body>
+        <!-- Language Switcher -->
+    <div class="language-switcher" style="margin-bottom: 20px;">
+        <form action="{% url 'set_language' %}" method="post" style="display: inline;">
+            {% csrf_token %}
+            <input name="next" type="hidden" value="{{ request.path }}" />
+            <button type="submit" name="language" value="lv" style="background-color: #ff69b4; color: white; border: none; padding: 8px 15px; margin-right: 10px; border-radius: 5px; cursor: pointer; font-weight: bold;">LV</button>
+        </form>
+        <form action="{% url 'set_language' %}" method="post" style="display: inline;">
+            {% csrf_token %}
+            <input name="next" type="hidden" value="{{ request.path }}" />
+            <button type="submit" name="language" value="en" style="background-color: #ff69b4; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; font-weight: bold;">EN</button>
+        </form>
+    </div>
+
 <div class="topnav">
-    <div><h1>TN</h1><h1>Projects</h1></div>
+    <div><h1>TN</h1><h1>{% trans "Projects" %}</h1></div>
     <div>
-        <a href="{% url 'dashboard' %}">Dashboard</a>
-        <a href="{% url 'tasks' %}">Tasks</a>
-        <a href="#about">logout</a></div> <!--kkā jāpieliek izlogošanās-->
-</div> 
+        <a href="{% url 'dashboard' %}">{% trans "Dashboard" %}</a>
+        <a href="{% url 'tasks' %}">{% trans "Tasks" %}</a>
+        <a href="{% url 'login' %}">{% trans "logout" %}</a>
+    </div> 
+</div>
 
 <div class="projects">
     <ul>
@@ -23,12 +40,12 @@
                 <a href="{% url 'project_detail' project.pk %}">{{ project.name }}</a> - {{ project.description }}
             </li>
         {% empty %}
-            <li>No projects found.</li>
+            <li>{% trans "No projects found." %}</li>
         {% endfor %}
     </ul>
 
     {% if user.is_staff or user.is_superuser %} 
-        <a href="{% url 'new_project' %}">Create New Project</a>
+        <a href="{% url 'new_project' %}">{% trans "Create new project" %}</a>
     {% endif %}
 </div>
 </body>
