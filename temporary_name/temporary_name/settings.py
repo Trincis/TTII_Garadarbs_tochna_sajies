@@ -122,9 +122,13 @@ LOGGING = {
         'level': 'WARNING',
     },
 }
+
+LOGIN_URL = '/users/login/'
+
 LOGIN_REDIRECT_URL = '/dashboard/'
 LOGOUT_REDIRECT_URL = '/login/'
 
 AUTHENTICATION_BACKENDS = [
-    'users.backends.EmailBackend',
+    'users.backends.EmailBackend',       # <- your custom backend
+    'django.contrib.auth.backends.ModelBackend',  # <- fallback
 ]

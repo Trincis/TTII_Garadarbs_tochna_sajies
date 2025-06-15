@@ -1,6 +1,19 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required, user_passes_test
 from .models import Project, Task
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import login
+
+def login_view(request):
+    form = AuthenticationForm(request, data=request.POST or None)
+
+    if request.method == 'POST':
+        if form.is_valid():
+            user = form.get_user()
+            login(request, user)
+            return redirect('dashboard')  # Change if needed
+
+    return render(request, 'login.html', {'form': form})
 
 def project_detail(request, pk):
     project = get_object_or_404(Project, pk=pk)

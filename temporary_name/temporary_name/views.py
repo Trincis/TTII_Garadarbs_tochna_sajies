@@ -3,6 +3,17 @@ from django.shortcuts import render, get_object_or_404, redirect
 from tasks.models import Task
 from django.http import HttpResponse
 
+def login_view(request):
+    form = AuthenticationForm(request, data=request.POST or None)
+    
+    if request.method == 'POST':
+        if form.is_valid():
+            user = form.get_user()
+            login(request, user)
+            return redirect('dashboard')  # Redirect to dashboard after login
+    
+    return render(request, 'login.html', {'form': form})
+
 def projects(request):
     return render(request, 'projects.html')
 
