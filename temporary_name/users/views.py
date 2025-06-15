@@ -21,6 +21,6 @@ def tasks_view(request):
 def dashboard_view(request):
     return render(request, 'dashboard.html')
 
-def logout_view(request):
+def custom_logout(request):
     logout(request)
-    return redirect('logout.html') 
+    return redirect('login.html') 

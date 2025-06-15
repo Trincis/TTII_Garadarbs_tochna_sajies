@@ -3,10 +3,12 @@ from django.contrib import admin
 from temporary_name import views as temp_views
 from django.conf.urls.i18n import i18n_patterns  # language support
 from projects import views as project_views
+from django.contrib.auth import views as auth_views
 
 urlpatterns = i18n_patterns(
     path('i18n/', include('django.conf.urls.i18n')),#language
     path('', project_views.login_view, name='login'),
+    path('logout/', auth_views.LogoutView.as_view(next_page='login'), name='logout'),
 
     path('dashboard/', temp_views.dashboard, name='dashboard'),
 
