@@ -11,9 +11,11 @@
 <div class="topnav">
     <div><h1>TN</h1><h1>Dashboard</h1></div>
     <div>
-    <a href="#about">Tasks</a>
-    <a href="#about">Projects</a>
-    <a href="#about">logout</a></div> <!--kkā jāpieliek izlogošanās-->
+        <a href="{% url 'tasks' %}">Tasks</a>
+        <a href="{% url 'projects' %}">Projects</a>
+        <a href="{% url 'logout' %}">Logout</a>
+    </div>
 </div> 
+<div><h1>Sveicināts, {{ user.email }}!</h1></div>
 </body>
 </html>

@@ -9,47 +9,42 @@
     <script src="{% static 'js/script.js' %}"></script>
 </head>
 <body>
+    <!-- Language Switcher -->
     <div class="language-switcher" style="margin-bottom: 20px;">
         <form action="{% url 'set_language' %}" method="post" style="display: inline;">
             {% csrf_token %}
             <input name="next" type="hidden" value="{{ request.path }}" />
-            <button type="submit" name="language" value="lv" style="
-                background-color: #ff69b4;
-                color: white;
-                border: none;
-                padding: 8px 15px;
-                margin-right: 10px;
-                border-radius: 5px;
-                cursor: pointer;
-                font-weight: bold;
-            ">LV</button>
+            <button type="submit" name="language" value="lv" style="background-color: #ff69b4; color: white; border: none; padding: 8px 15px; margin-right: 10px; border-radius: 5px; cursor: pointer; font-weight: bold;">LV</button>
         </form>
         <form action="{% url 'set_language' %}" method="post" style="display: inline;">
             {% csrf_token %}
             <input name="next" type="hidden" value="{{ request.path }}" />
-            <button type="submit" name="language" value="en" style="
-                background-color: #ff69b4;
-                color: white;
-                border: none;
-                padding: 8px 15px;
-                border-radius: 5px;
-                cursor: pointer;
-                font-weight: bold;
-            ">EN</button>
+            <button type="submit" name="language" value="en" style="background-color: #ff69b4; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; font-weight: bold;">EN</button>
         </form>
     </div>
 
+    <!-- Login Form -->
     <div class="login">
         <h1>{% trans "TemporaryName" %}</h1>
-        <form id="login" method="POST" action="">
+        
+        {% if form.errors %}
+            <div style="color: red; margin-bottom: 10px;">
+                {{ form.non_field_errors }}
+                {% for field in form %}
+                    {{ field.errors }}
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <form method="post" action="{% url 'login' %}">
             {% csrf_token %}
             <div class="forma">
-                <label for="email">{% trans "Email:" %}</label>
-                <input type="text" id="email" name="email" placeholder="{% trans 'Enter your email' %}" required>
+                <label for="id_email">{% trans "Email:" %}</label>
+                {{ form.username }}
             </div>
             <div class="forma">
-                <label for="password">{% trans "Password:" %}</label>
-                <input type="password" id="password" name="password" placeholder="{% trans 'Enter your Password' %}" required>
+                <label for="id_password">{% trans "Password:" %}</label>
+                {{ form.password }}
             </div>
             <div class="submit">
                 <button type="submit">{% trans "Submit" %}</button>
@@ -57,7 +52,7 @@
             <div class="forgot">
                 <a href="#">{% trans "Forgot password" %}</a>
             </div>
-        </form> 
+        </form>
     </div>
 </body>
 </html>

@@ -122,3 +122,9 @@ LOGGING = {
         'level': 'WARNING',
     },
 }
+LOGIN_REDIRECT_URL = '/dashboard/'
+LOGOUT_REDIRECT_URL = '/login/'
+
+AUTHENTICATION_BACKENDS = [
+    'users.backends.EmailBackend',
+]

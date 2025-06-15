@@ -2,11 +2,12 @@ from django.urls import path, include
 from django.contrib import admin
 from temporary_name import views as temp_views
 from django.conf.urls.i18n import i18n_patterns  # language support
+from projects import views as project_views
 
 urlpatterns = i18n_patterns(
     path('i18n/', include('django.conf.urls.i18n')),#language
-    
-    path('', temp_views.index, name='index'),
+    path('', project_views.login_view, name='login'),
+
     path('dashboard/', temp_views.dashboard, name='dashboard'),
 
     path('projects/', include('projects.urls')),

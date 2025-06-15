@@ -3,9 +3,6 @@ from django.shortcuts import render, get_object_or_404, redirect
 from tasks.models import Task
 from django.http import HttpResponse
 
-def index(request):
-    return render(request, 'index.html')
-
 def projects(request):
     return render(request, 'projects.html')
 
