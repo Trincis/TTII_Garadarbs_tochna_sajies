@@ -1,13 +1,15 @@
 from django.urls import path, include
 from django.contrib import admin
 from temporary_name import views as temp_views
+from django.conf.urls.i18n import i18n_patterns  # language support
 
-urlpatterns = [
+urlpatterns = i18n_patterns(
+    path('i18n/', include('django.conf.urls.i18n')),#language
+    
     path('', temp_views.index, name='index'),
     path('dashboard/', temp_views.dashboard, name='dashboard'),
 
-    path('projects/', include('projects.urls')),  # include projects.urls here
-
+    path('projects/', include('projects.urls')),
     path('tasks/', temp_views.tasks, name='tasks'),
     path('tasks/update/<int:task_id>/', temp_views.update_task, name='update_task'),
 
@@ -16,4 +18,6 @@ urlpatterns = [
     path('comments/', include('comments.urls')),
     path('timelogs/', include('timelogs.urls')),
     path('files/', include('files.urls')),
-]
+
+    prefix_default_language=False,  # must be last
+)

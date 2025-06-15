@@ -1,31 +1,61 @@
 <!DOCTYPE html>
-{% load static %}
-<html lang="en">
+{% load static i18n %}
+<html lang="{{ LANGUAGE_CODE }}">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
+    <title>{% trans "Login" %}</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <script src="{% static 'js/script.js' %}"></script>
 </head>
 <body>
+    <div class="language-switcher" style="margin-bottom: 20px;">
+        <form action="{% url 'set_language' %}" method="post" style="display: inline;">
+            {% csrf_token %}
+            <input name="next" type="hidden" value="{{ request.path }}" />
+            <button type="submit" name="language" value="lv" style="
+                background-color: #ff69b4;
+                color: white;
+                border: none;
+                padding: 8px 15px;
+                margin-right: 10px;
+                border-radius: 5px;
+                cursor: pointer;
+                font-weight: bold;
+            ">LV</button>
+        </form>
+        <form action="{% url 'set_language' %}" method="post" style="display: inline;">
+            {% csrf_token %}
+            <input name="next" type="hidden" value="{{ request.path }}" />
+            <button type="submit" name="language" value="en" style="
+                background-color: #ff69b4;
+                color: white;
+                border: none;
+                padding: 8px 15px;
+                border-radius: 5px;
+                cursor: pointer;
+                font-weight: bold;
+            ">EN</button>
+        </form>
+    </div>
+
     <div class="login">
-        <h1>TemporaryName</h1>
+        <h1>{% trans "TemporaryName" %}</h1>
         <form id="login" method="POST" action="">
             {% csrf_token %}
             <div class="forma">
-                <label for="email">Email:</label>
-                <input type="text" id="email" name="email" placeholder="Enter your email" required>
+                <label for="email">{% trans "Email:" %}</label>
+                <input type="text" id="email" name="email" placeholder="{% trans 'Enter your email' %}" required>
             </div>
             <div class="forma">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" placeholder="Enter your Password" required>
+                <label for="password">{% trans "Password:" %}</label>
+                <input type="password" id="password" name="password" placeholder="{% trans 'Enter your Password' %}" required>
             </div>
             <div class="submit">
-            <button type="submit">Submit</button>
+                <button type="submit">{% trans "Submit" %}</button>
             </div>
             <div class="forgot">
-            <a href="#">forgot password UwU</a>
+                <a href="#">{% trans "Forgot password" %}</a>
             </div>
         </form> 
     </div>
