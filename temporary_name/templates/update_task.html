@@ -1,6 +1,35 @@
-<form method="POST">
+<!DOCTYPE html>
+{% load static %}
+{% load static i18n %}
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% trans "Update task" %}</title>
+    
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <script src="{% static 'js/script.js' %}"></script>
+</head>
+<body>
+        <!-- Language Switcher -->
+    <div class="language-switcher" style="margin-bottom: 20px;">
+        <form action="{% url 'set_language' %}" method="post" style="display: inline;">
+            {% csrf_token %}
+            <input name="next" type="hidden" value="{{ request.path }}" />
+            <button type="submit" name="language" value="lv" style="background-color: #ff69b4; color: white; border: none; padding: 8px 15px; margin-right: 10px; border-radius: 5px; cursor: pointer; font-weight: bold;">LV</button>
+        </form>
+        <form action="{% url 'set_language' %}" method="post" style="display: inline;">
+            {% csrf_token %}
+            <input name="next" type="hidden" value="{{ request.path }}" />
+            <button type="submit" name="language" value="en" style="background-color: #ff69b4; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; font-weight: bold;">EN</button>
+        </form>
+    </div>
+
+    <form method="POST">
     {% csrf_token %}
-    <label for="title">Task Title:</label>
+    <label for="title">{% trans "Task Title" %}:</label>
     <input type="text" name="title" id="title" value="{{ task.title }}" required>
-    <button type="submit">Update Task</button>
+    <button type="submit">{% trans "Update Task" %}</button>
 </form>
+</body>
+</html>

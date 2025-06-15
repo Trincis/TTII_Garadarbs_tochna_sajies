@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-15 14:31+0300\n"
+"POT-Creation-Date: 2025-06-15 21:44+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,30 +19,114 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
 
+#: .\templates\dashboard.html:8 .\templates\dashboard.html:28
+#: .\templates\projects\projects.html:30 .\templates\tasks.html:30
+msgid "Dashboard"
+msgstr "Kontrolpanelis"
+
+#: .\templates\dashboard.html:30 .\templates\projects\projects.html:31
+#: .\templates\tasks.html:8 .\templates\tasks.html:27
+msgid "Tasks"
+msgstr "Uzdevumi"
+
+#: .\templates\dashboard.html:31 .\templates\projects\projects.html:8
+#: .\templates\projects\projects.html:28 .\templates\tasks.html:29
+msgid "Projects"
+msgstr "Projekti"
+
+#: .\templates\dashboard.html:32 .\templates\projects\projects.html:32
+#: .\templates\tasks.html:31
+msgid "logout"
+msgstr "izlogoties"
+
+#: .\templates\dashboard.html:35
+msgid "Hello"
+msgstr "Sveiks"
+
+#: .\templates\login.html:7
 msgid "Login"
 msgstr "Pieslēgties"
 
+#: .\templates\login.html:28
+msgid "TemporaryName"
+msgstr ""
+
+#: .\templates\login.html:42
 msgid "Email:"
 msgstr "E-pasts:"
 
-msgid "Enter your email"
-msgstr "Ievadi savu e-pastu"
-
+#: .\templates\login.html:46
 msgid "Password:"
 msgstr "Parole:"
 
-msgid "Enter your Password"
-msgstr "Ievadi savu paroli"
-
+#: .\templates\login.html:50
 msgid "Submit"
 msgstr "Apstiprināt"
 
+#: .\templates\login.html:53
 msgid "Forgot password"
 msgstr "Aizmirsi paroli"
 
+#: .\templates\projects\new_project.html:8
+msgid "New Project"
+msgstr "Jauns Projekts"
+
+#: .\templates\projects\new_project.html:13
+msgid "Task description"
+msgstr "Uzdevuma apraksts"
+
+#: .\templates\projects\new_project.html:32
+#: .\templates\projects\projects.html:48
+msgid "Create new project"
+msgstr "Izveidot jaunu projektu"
+
+#: .\templates\projects\new_project.html:35
+msgid "Project name"
+msgstr "Projekta nosaukums"
+
+#: .\templates\projects\new_project.html:38
+msgid "Description"
+msgstr "Apraksts"
+
+#: .\templates\projects\new_project.html:41
+msgid "Assign to"
+msgstr "Nozīmēt"
+
+#: .\templates\projects\new_project.html:49
+msgid "Tasks (enter multiple tasks)"
+msgstr "Uzdevumi (ievadiet vairākus uzdevumus)"
+
+#: .\templates\projects\new_project.html:51
+msgid "Add task"
+msgstr "Pievienot uzdevumu"
+
+#: .\templates\projects\new_project.html:54
+msgid "Create project"
+msgstr "Izveidot projektu"
+
+#: .\templates\projects\new_project.html:57
+msgid "Back to Projects"
+msgstr "Atpakaļ uz Projektiem"
+
+#: .\templates\projects\projects.html:43
+msgid "No projects found."
+msgstr "Nav projektu"
+
+#: .\templates\update_task.html:8
+msgid "Update task"
+msgstr "Atsvaidzināt uzdevumu"
+
+#: .\templates\update_task.html:30
+msgid "Task Title"
+msgstr "Uzdevuma nosaukums"
+
+#: .\templates\update_task.html:32
+msgid "Update Task"
+msgstr "Atsvaidzināt uzdevumu"
+
 #: .\venv\Lib\site-packages\django\contrib\messages\apps.py:16
 msgid "Messages"
-msgstr ""
+msgstr "Ziņas"
 
 #: .\venv\Lib\site-packages\django\contrib\sitemaps\apps.py:8
 msgid "Site Maps"
@@ -1263,3 +1347,9 @@ msgstr ""
 #: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:236
 msgid "Connect, get help, or contribute"
 msgstr ""
+
+#~ msgid "Enter your email"
+#~ msgstr "Ievadi savu e-pastu"
+
+#~ msgid "Enter your Password"
+#~ msgstr "Ievadi savu paroli"

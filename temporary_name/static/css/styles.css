@@ -111,6 +111,7 @@ input { width:75%; align-self:center;}
     padding: 20px;
     display: block;
     min-height: 200px;
+    background-color: lightgrey;
 }
 
 .projects a {

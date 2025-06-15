@@ -6,7 +6,7 @@ function addTask() {
   const taskItem = document.createElement('div');
   taskItem.className = 'task-item';
   taskItem.innerHTML = `
-    <input type="text" name="tasks" placeholder="Task description" required>
+    <input type="text" name="tasks" placeholder="${translations.taskPlaceholder}" required>
     <button type="button" onclick="removeTask(this)">✖</button>
   `;
   taskList.appendChild(taskItem);
